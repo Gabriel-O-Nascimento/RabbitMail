@@ -1,0 +1,275 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172033;
+  background: #eef3f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.panel {
+  width: min(820px, 100%);
+  background: #ffffff;
+  border: 1px solid #dbe4ee;
+  border-radius: 8px;
+  box-shadow: 0 16px 36px rgba(22, 35, 55, 0.08);
+  padding: 32px;
+}
+
+.page-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.brand-link {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #2c5aa0;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.2;
+  color: #14213d;
+}
+
+.page-header p {
+  margin: 10px auto 0;
+  max-width: 560px;
+  color: #59677c;
+  line-height: 1.5;
+}
+
+.action-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.button {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(20, 33, 61, 0.15);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.button-primary {
+  background: #2c5aa0;
+}
+
+.button-primary:hover:not(:disabled) {
+  background: #234b88;
+}
+
+.button-secondary {
+  background: #5b677a;
+}
+
+.button-secondary:hover:not(:disabled) {
+  background: #4b5667;
+}
+
+.button-success {
+  background: #1d7a54;
+}
+
+.button-success:hover:not(:disabled) {
+  background: #176644;
+}
+
+.button-ghost {
+  background: #ffffff;
+  color: #2c5aa0;
+  border: 1px solid #b8c8df;
+}
+
+.button-ghost:hover:not(:disabled) {
+  background: #f4f8fd;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.form label {
+  display: grid;
+  gap: 8px;
+  color: #26354c;
+  font-weight: 700;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  border: 1px solid #c9d5e4;
+  border-radius: 8px;
+  padding: 13px 14px;
+  color: #172033;
+  background: #ffffff;
+  outline: none;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: #2c5aa0;
+  box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.12);
+}
+
+.message {
+  margin: 0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.success-message {
+  color: #165a3e;
+  background: #e7f7ef;
+  border: 1px solid #b8e5ce;
+}
+
+.error-message {
+  color: #8a1f1f;
+  background: #fdecec;
+  border: 1px solid #f3bbbb;
+}
+
+.info-message {
+  color: #27476d;
+  background: #eaf2fb;
+  border: 1px solid #bfd4ea;
+}
+
+.navigation-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.list-summary {
+  border: 1px solid #dbe4ee;
+  border-radius: 8px;
+  background: #f7fafd;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #dbe4ee;
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid #dbe4ee;
+}
+
+th {
+  background: #f1f5fa;
+  color: #24344c;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.status {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.status.active {
+  color: #165a3e;
+  background: #e7f7ef;
+}
+
+.status.inactive {
+  color: #6e4c00;
+  background: #fff3cc;
+}
+
+.empty-state {
+  margin: 0;
+  border: 1px dashed #b8c8df;
+  border-radius: 8px;
+  padding: 22px;
+  text-align: center;
+  color: #59677c;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 24px 12px;
+  }
+
+  .panel {
+    padding: 24px 18px;
+  }
+
+  .page-header h1 {
+    font-size: 26px;
+  }
+
+  .navigation-actions {
+    grid-template-columns: 1fr;
+  }
+}
