@@ -8,11 +8,11 @@
 		<version>4.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.mensageria</groupId>
+	<groupId>com.rabbitmail</groupId>
 	<artifactId>rabbitMail</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<name>RabbitMail</name>
+	<description>Asynchronous batch email sender with Spring Boot, RabbitMQ and MySQL</description>
 	<url/>
 	<licenses>
 		<license/>
