@@ -1,31 +1,39 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import api from "../api/api.js";
 import Button from "../components/Button.jsx";
 import Layout from "../components/Layout.jsx";
 
 function EmailList() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [recipients, setRecipients] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  async function loadRecipients() {
+  const loadRecipients = useCallback(async () => {
     try {
       setLoading(true);
       setError("");
-      const response = await api.get("/recipients");
-      setRecipients(response.data);
+      const response = await api.get("/recipients", {
+        params: {
+          _: Date.now(),
+        },
+      });
+
+      const responseData = Array.isArray(response.data) ? response.data : response.data?.data;
+      setRecipients(Array.isArray(responseData) ? responseData : []);
     } catch (requestError) {
+      setRecipients([]);
       setError(requestError.response?.data?.message || "Nao foi possivel carregar os e-mails.");
     } finally {
       setLoading(false);
     }
-  }
+  }, []);
 
   useEffect(() => {
     loadRecipients();
-  }, []);
+  }, [loadRecipients, location.key]);
 
   return (
     <Layout title="E-mails cadastrados">
@@ -68,6 +76,9 @@ function EmailList() {
       )}
 
       <div className="navigation-actions">
+        <Button onClick={loadRecipients} variant="secondary" disabled={loading}>
+          {loading ? "Atualizando..." : "Atualizar lista"}
+        </Button>
         <Button onClick={() => navigate("/cadastrar-email")}>Cadastrar novo e-mail</Button>
         <Button onClick={() => navigate("/enviar-mensagem")} variant="success">
           Enviar mensagem para os e-mails cadastrados

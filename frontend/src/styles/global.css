@@ -256,7 +256,7 @@ tbody tr:last-child td {
   color: #59677c;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 478px) {
   .page {
     padding: 24px 12px;
   }
